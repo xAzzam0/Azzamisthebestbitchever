@@ -1,2 +1,0 @@
-# Azzamisthebestbitchever
-panda..msa

@@ -63,6 +63,7 @@ client.on('message', message => {
 	if(command == prefix + 'bc') { // الكوماند !bc
 		var args = message.content.split(' ').slice(1).join(' ');
 		if(message.author.bot) return;
+	    if (!message.member.hasPermission('ADMINISTRATOR')) return message.reply('**You Can Not!**');
 		if(!args) return message.channel.send(`**➥ Useage:** ${prefix}bc كلامك`);
 		
 		let bcSure = new Discord.RichEmbed()

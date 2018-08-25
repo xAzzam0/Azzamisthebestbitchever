@@ -114,20 +114,24 @@ client.on('message' , message => {
   }  
  });
 
-client.on("message", (message) => {
-            if (message.channel.type === "dm") {
-        if (message.author.id === client.user.id) return;
-        let yumz = new Discord.RichEmbed()
-                    .setTimestamp()
-                    .setTitle("Direct Message To The Bot")
-                    .addField(`Sent By:`, `<@${message.author.id}>`)
-                    .setColor("RANDOM")
-                    .setThumbnail(message.author.displayAvatarURL)
-                    .addField(`Message: `, `\n\n\`\`\`${message.content}\`\`\``)
-                    .setFooter(`DM Bot Messages | DM Logs`)
-                client.users.get("222628595795886080").send(yumz)
-            }
-});
+client.on("message", message => { //clear
+              var args = message.content.substring(prefix.length).split(" ");
+              if (message.content.startsWith("مسح")) {
+                  if(!message.channel.guild) return message.reply('**على زق بس **');         
+     if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('**You Have No Permission**');
+          var msg;
+          msg = parseInt();
+        
+        message.channel.fetchMessages({limit: msg}).then(messages => message.channel.bulkDelete(messages)).catch(console.error);
+        message.channel.sendMessage("", {embed: {
+          title: "**Done.**",
+            
+        }}).then(msg => {msg.delete(3000)});
+                            }
+  
+       
+  });
+  
 
 
 
